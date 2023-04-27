@@ -2,7 +2,7 @@
 
 Draw draw = new();
 
-Raylib.InitWindow(800, 480, "Hello World");
+Raylib.InitWindow(1600, 900, "Brane Gamie");
 
 GameManager.ExcecuteActions();
 
