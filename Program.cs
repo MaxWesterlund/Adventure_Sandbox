@@ -2,7 +2,7 @@
 
 Draw draw = new();
 
-Raylib.InitWindow(800, 400, "Text Adventure Game TM");
+Raylib.InitWindow(1600, 900, "Text Adventure Game TM");
 
 GameManager.ExcecuteActions();
 

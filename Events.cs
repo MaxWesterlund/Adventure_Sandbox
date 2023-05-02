@@ -1,5 +1,8 @@
 public enum Events {
     Empty,
-    BreakFree,
-    Stay
+    RideRollband,
+    GoUpStairs,
+    RideJetpack,
+    BigNuts,
+    SmallNuts
 }

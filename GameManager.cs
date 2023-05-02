@@ -7,10 +7,11 @@ public static class GameManager {
     public static Option SelectedOption = new("", global::Events.Empty);
 
     static Text nextText = new Text(
-        "Du arbetar i fabriken \"Carls Nötter\". Du jobbar långa timmar under den onda kapitalisten Carls styre. Nu har du bestämt dig för att trotsa Carl och slå dig fri.",
+        "Du är en arbetare på fabriken där Carls nötterTM tillverkas. Du jobbar långa timmar för en liten lön eftersom Carl är en girig kapitalist som bara bryr sig om att tjäna mer pengar. Medan du och dina kollegor jobbar hårt går han alltid runt i fabriken och beklagar sig på er ineffektivitet. Men idag har du fått nog, det har blivit dags för dig att mörda Carl och ta över hans fabrik. \nDitt äventyr börjar vid din maskin i fabriken (Den som sätter på skalen på nötterna). Den ligger vid entren till fabriken vilket irriterande nog ligger längst bort från Carls kontor där han sitter och röker en asbestoscigarr. Hur vill du börja ta dig mot kontoret?",
         new Option[] {
-            new("Slå dig fri", global::Events.BreakFree),
-            new("Nöj dig med ditt jobb", global::Events.Stay)
+            new("Åk på rullbandet", global::Events.RideRollband),
+            new("Gå upp för trappan", global::Events.GoUpStairs),
+            new("Använd din Carls nötter nöt-jetpack", global::Events.RideJetpack)
         }
     );
     
@@ -35,9 +36,11 @@ public static class GameManager {
                 }
                 if (Raylib.IsKeyPressed(KeyboardKey.KEY_RIGHT)) {
                     index += 1;
+                    await Task.Delay(50);
                 }
                 else if (Raylib.IsKeyPressed(KeyboardKey.KEY_LEFT)) {
                     index -= 1;
+                    await Task.Delay(50);
                 }
                 if (index < 0) {
                     index = CurrentOptions.Count - 1;
@@ -56,27 +59,9 @@ public static class GameManager {
                 }
                 if (Raylib.IsKeyPressed(KeyboardKey.KEY_ENTER)) {
                     hasSelected = true;
-                    nextText = GetTextFromEvent(SelectedOption.Event);
+                    nextText = Texts.GetTextFromEvent(SelectedOption.Event);
                 }
             }
         }
     }
-    
-    static Text GetTextFromEvent(Events events) {
-        Text text = new Text("", new Option[0]);
-        switch (events) {
-            case (Events.BreakFree):
-                text = new Text("Du slog dig fri!", new Option[] {
-                    new("Jag stannar nog förresten", Events.Stay)
-                });
-                break;
-            case (Events.Stay):
-                text = new Text("Du nöjde dig.", new Option[] {
-                    new("Jag ångrade mig", Events.BreakFree)
-                });
-                break;
-        }
-        
-        return text;
-    }  
 }
