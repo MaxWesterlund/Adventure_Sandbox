@@ -8,6 +8,7 @@ public enum Events {
     JetpackGira,
     NotterHandgranat,
     Katapultstol,
+    KastaNotKram,
     SkramCarl,
     SattPaRadion,
     MalsokandeRaket,
