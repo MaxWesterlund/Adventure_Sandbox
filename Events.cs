@@ -1,10 +1,11 @@
 public enum Events {
     Empty,
-    RideRollband,
-    GoUpStairs,
-    RideJetpack,
-    BigNuts,
-    SmallNuts,
+    Intro,
+    AkRullband,
+    GaUppforTrappa,
+    AkJetpack,
+    StoraNotter,
+    SmaNotter,
     JetpackGira,
     NotterHandgranat,
     Katapultstol,
@@ -12,5 +13,6 @@ public enum Events {
     SkramCarl,
     SattPaRadion,
     MalsokandeRaket,
-    LasBibleln
+    LasBibleln,
+    NewGame
 }

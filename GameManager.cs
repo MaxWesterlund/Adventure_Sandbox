@@ -5,17 +5,9 @@ public static class GameManager {
     public static List<Option> CurrentOptions = new();
 
     public static Option SelectedOption = new("", global::Events.Empty);
-
-    static Text nextText = new Text(
-        "Du är en arbetare på fabriken där Carls nötterTM tillverkas. Du jobbar långa timmar för en liten lön eftersom Carl är en girig kapitalist som bara bryr sig om att tjäna mer pengar. Medan du och dina kollegor jobbar hårt går han alltid runt i fabriken och beklagar sig på er ineffektivitet. Men idag har du fått nog, det har blivit dags för dig att mörda Carl och ta över hans fabrik. \nDitt äventyr börjar vid din maskin i fabriken (Den som sätter på skalen på nötterna). Den ligger vid entren till fabriken vilket irriterande nog ligger längst bort från Carls kontor där han sitter och röker en asbestoscigarr. Hur vill du börja ta dig mot kontoret?",
-        new Option[] {
-            new("Åk på rullbandet", global::Events.RideRollband),
-            new("Gå upp för trappan", global::Events.GoUpStairs),
-            new("Använd din Carls nötterTM nöt-jetpack", global::Events.RideJetpack)
-        }
-    );
     
     public static async void ExcecuteActions(bool isDone = false) {
+        Text nextText = Texts.GetTextFromEvent(Saving.LoadData());
         while (!isDone) {
             CurrentOptions.Clear();
             CurrentLine = nextText;
@@ -60,6 +52,7 @@ public static class GameManager {
                 if (Raylib.IsKeyPressed(KeyboardKey.KEY_ENTER)) {
                     hasSelected = true;
                     nextText = Texts.GetTextFromEvent(SelectedOption.Event);
+                    Saving.SaveData((int)SelectedOption.Event);
                 }
             }
         }

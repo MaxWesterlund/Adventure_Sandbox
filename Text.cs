@@ -16,7 +16,7 @@ public class Text {
         Options = options;
     }
 
-    public async Task Write(string currentLine = "") {
+    public async Task Write(string currentLine = "", bool skipped = false) {
         foreach (char c in finalText) {
             if (Raylib.MeasureTextEx(Raylib.GetFontDefault(), currentLine, Settings.FontSize, Settings.Spacing).X >= Raylib.GetScreenWidth() - Settings.LineMargin * 2) {
                 CurrentText += "\n";
@@ -24,17 +24,23 @@ public class Text {
             }
             currentLine += c;
             CurrentText += c;
-            int delay = 50;
-            switch (c) {
-                case (' '):
-                    delay = 25;
-                    break;
-                case (','):
-                    delay = 75;
-                    break;
-                case ('.'):
-                    delay = 100;
-                    break;
+            int delay = 0;
+            if (!skipped) {
+                delay = 50;
+                switch (c) {
+                    case (' '):
+                        delay = 25;
+                        break;
+                    case (','):
+                        delay = 75;
+                        break;
+                    case ('.'):
+                        delay = 100;
+                        break;
+                }
+            }
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_SPACE)) {
+                skipped = true;
             }
             if (CurrentText == finalText) {
                 delay = 500;
