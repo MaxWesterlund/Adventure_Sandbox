@@ -11,7 +11,7 @@ public static class GameManager {
         new Option[] {
             new("Åk på rullbandet", global::Events.RideRollband),
             new("Gå upp för trappan", global::Events.GoUpStairs),
-            new("Använd din Carls nötter nöt-jetpack", global::Events.RideJetpack)
+            new("Använd din Carls nötterTM nöt-jetpack", global::Events.RideJetpack)
         }
     );
     

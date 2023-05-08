@@ -4,5 +4,12 @@ public enum Events {
     GoUpStairs,
     RideJetpack,
     BigNuts,
-    SmallNuts
+    SmallNuts,
+    JetpackGira,
+    NotterHandgranat,
+    Katapultstol,
+    SkramCarl,
+    SattPaRadion,
+    MalsokandeRaket,
+    LasBibleln
 }
