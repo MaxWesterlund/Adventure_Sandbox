@@ -1,5 +1,6 @@
 using Raylib_cs;
 
+// Håller variabler för visuella inställningar
 public static class Settings {
     public static int FontSize = 20;
     public static int Spacing = 1;

@@ -1,10 +1,11 @@
+// Beskrivning: Håller information om vad ett alternativs egenskaper.
 public class Option {
     public string Description;
-    public Events Event;
+    public Event Event;
     public bool IsSelected = false;
-
-    public Option(string description, Events events) {
+    
+    public Option(string description, Event Ev) {
         Description = description;
-        Event = events;
+        Event = Ev;
     }
 }

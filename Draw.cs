@@ -2,8 +2,10 @@ using Raylib_cs;
 using System.Numerics;
 using System;
 
+// Beskrivning: Klassen står för att rita allt som ska ritas på skärmen.
 public class Draw {
-    public void DrawEverything() {
+    // Beskrivning: Ritar ut all text och alternativ på skärmen.
+    public void DrawText() {
         Raylib.BeginDrawing();
     
         Raylib.ClearBackground(Color.BLACK);

@@ -1,5 +1,5 @@
-public enum Events {
-    Empty,
+// Beskrivning: Håller alla saker som kan hända i spelet.
+public enum Event {
     Intro,
     AkRullband,
     GaUppforTrappa,
@@ -14,5 +14,6 @@ public enum Events {
     SattPaRadion,
     MalsokandeRaket,
     LasBibleln,
+    NewEvent,
     NewGame
 }
